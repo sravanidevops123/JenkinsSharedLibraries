@@ -12,4 +12,8 @@ def call(String stageName){
      {
        sh "mvn clean deploy"
      }
+  else if ("${stageName}" == "deploy")
+  {
+    sh "ansible-playbook -i aws_ec2.yaml tomcat.yml"
+}
 }
